@@ -20,7 +20,7 @@ async function searchBookByNameOrAuthor(bookName, author) {
 
 async function getPageInfo(url, author) {
   const browser = await puppeteer.launch({
-    executablePath: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
     ignoreHTTPSErrors: true,
   })
   const page = await browser.newPage()
@@ -119,7 +119,7 @@ async function getBookInfo(page, url) {
 }
 
 function downloadBook(content) {
-  const filePath = path.join(__dirname, '..', '/static', `/${bookName}.txt`) // static下创建
+  const filePath = path.resolve(__dirname,`../static/${bookName}.txt`) // static下创建
 
   fs.writeFileSync(filePath, content)
 }
